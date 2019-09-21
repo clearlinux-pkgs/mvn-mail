@@ -4,12 +4,15 @@
 #
 Name     : mvn-mail
 Version  : 1.6.3
-Release  : 3
+Release  : 4
 URL      : https://github.com/eclipse-ee4j/mail/archive/1.6.3.tar.gz
 Source0  : https://github.com/eclipse-ee4j/mail/archive/1.6.3.tar.gz
-Source1  : https://repo1.maven.org/maven2/com/sun/mail/all/1.6.3/all-1.6.3.pom
-Source2  : https://repo1.maven.org/maven2/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.jar
-Source3  : https://repo1.maven.org/maven2/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.pom
+Source1  : https://repo1.maven.org/maven2/com/sun/mail/all/1.6.0/all-1.6.0.pom
+Source2  : https://repo1.maven.org/maven2/com/sun/mail/all/1.6.3/all-1.6.3.pom
+Source3  : https://repo1.maven.org/maven2/com/sun/mail/mailapi/1.6.0/mailapi-1.6.0.jar
+Source4  : https://repo1.maven.org/maven2/com/sun/mail/mailapi/1.6.0/mailapi-1.6.0.pom
+Source5  : https://repo1.maven.org/maven2/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.jar
+Source6  : https://repo1.maven.org/maven2/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : EPL-2.0 GPL-2.0
@@ -47,14 +50,23 @@ license components for the mvn-mail package.
 mkdir -p %{buildroot}/usr/share/package-licenses/mvn-mail
 cp LICENSE.md %{buildroot}/usr/share/package-licenses/mvn-mail/LICENSE.md
 cp mail/src/main/resources/META-INF/LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-mail/mail_src_main_resources_META-INF_LICENSE.txt
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/all/1.6.0
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/all/1.6.0/all-1.6.0.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/all/1.6.3
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/all/1.6.3/all-1.6.3.pom
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/all/1.6.3/all-1.6.3.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.0
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.0/mailapi-1.6.0.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.0
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.0/mailapi-1.6.0.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.jar
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.pom
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.pom
 
 
 %files
@@ -62,7 +74,10 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/com/sun/mail/all/1.6.0/all-1.6.0.pom
 /usr/share/java/.m2/repository/com/sun/mail/all/1.6.3/all-1.6.3.pom
+/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.0/mailapi-1.6.0.jar
+/usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.0/mailapi-1.6.0.pom
 /usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.jar
 /usr/share/java/.m2/repository/com/sun/mail/mailapi/1.6.3/mailapi-1.6.3.pom
 
